@@ -10,8 +10,6 @@ public abstract class Film {
     private short year;
     private boolean viewed;
 
-
-
     public Film(String title, String genre, String creator, int duration) {
         super();
         this.title = title;
@@ -68,7 +66,7 @@ public abstract class Film {
         this.viewed = viewed;
     }
 
-
+    //metodo abstracto
     public abstract void view();
 
 }

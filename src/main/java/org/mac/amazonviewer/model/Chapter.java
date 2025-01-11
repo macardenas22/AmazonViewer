@@ -63,9 +63,22 @@ public class Chapter extends Movie {
         return chapters;
     }
 
+    //Al heredad de movie tiene el metodo el mismo comportamiento y se le puede añadir más comportamiento
+    //se suscribirá para generar tener otra funcionalidad, pero heredando con super lo de movie
     @Override
     public void view() {
-        // TODO Auto-generated method stub
+        super.view();
+        //obtienes serie y capitulos
+        ArrayList<Chapter> chapters = getSerie().getChapters();
+        int chapterViewedCounter = 0; //contabiliza cuantos cap fueron vistos
+        for (Chapter chapter : chapters){
+            if (chapter.getIsViewed()){//heredado de movie la función
+                chapterViewedCounter++;
+            }
+        }
+        if (chapterViewedCounter == chapters.size()){
+            getSerie().setViewed(true);
+        }
 
     }
 

@@ -71,7 +71,20 @@ public class Movie extends Film implements IVisualizable {
 
     @Override
     public void view() {
-        // TODO Auto-generated method stub
+        //movieSelected no se requiere porque hace parte de la misma clase
+        setViewed(true);
+        Date dateI = startToSee(new Date());
+
+        for (int i = 0; i < 100000; i++) {
+            System.out.println("..........");
+        }
+
+        //Termine de verla
+        stopToSee(dateI, new Date());
+        System.out.println();
+        //Cambiamos por toString dado que moviSelected antes lo generaba aca lo aplicamos
+        System.out.println("Viste: " + toString());
+        System.out.println("Por: " + getTimeViewed() + " milisegundos");
     }
 
 }

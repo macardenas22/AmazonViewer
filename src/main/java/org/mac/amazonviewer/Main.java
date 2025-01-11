@@ -14,6 +14,10 @@ public class Main {
     public static void main(String[] args) {
         // TODO Auto-generated method stub
 
+        //instancia metodo abstracto de movie.
+        /*Film film = new Movie("","","",1,(short)1999);
+        film.view();*/
+
         showMenu();
 
     }
@@ -101,7 +105,9 @@ public class Main {
             }
             if (response > 0) {
                 Movie movieSelected = movies.get(response-1);
-                movieSelected.setViewed(true);
+                movieSelected.view();
+            //Esta información pasa al abstract de clase "view" de la clase movie
+            /*    movieSelected.setViewed(true);
                 Date dateI = movieSelected.startToSee(new Date());
 
                 for (int i = 0; i < 100000; i++) {
@@ -112,7 +118,7 @@ public class Main {
                 movieSelected.stopToSee(dateI, new Date());
                 System.out.println();
                 System.out.println("Viste: " + movieSelected);
-                System.out.println("Por: " + movieSelected.getTimeViewed() + " milisegundos");
+                System.out.println("Por: " + movieSelected.getTimeViewed() + " milisegundos");*/
             }
 
 
@@ -177,7 +183,10 @@ public class Main {
 
             if(response > 0) {
                 Chapter chapterSelected = chaptersOfSerieSelected.get(response-1);
-                chapterSelected.setViewed(true);
+                chapterSelected.view();
+
+            //Se traslada al metodo abstracto de la clase abstracta view() que se encuentra en chapter
+            /*    chapterSelected.setViewed(true);
                 Date dateI = chapterSelected.startToSee(new Date());
 
                 for (int i = 0; i < 100000; i++) {
@@ -188,7 +197,7 @@ public class Main {
                 chapterSelected.stopToSee(dateI, new Date());
                 System.out.println();
                 System.out.println("Viste: " + chapterSelected);
-                System.out.println("Por: " + chapterSelected.getTimeViewed() + " milisegundos");
+                System.out.println("Por: " + chapterSelected.getTimeViewed() + " milisegundos");*/
             }
         }while(exit !=0);
     }
@@ -219,7 +228,10 @@ public class Main {
 
             if(response > 0) {
                 Book bookSelected = books.get(response-1);
-                bookSelected.setReaded(true);
+                bookSelected.view();
+
+                //se tranfiere info al metodo view de la clase book
+                /*bookSelected.setReaded(true);
                 Date dateI = bookSelected.startToSee(new Date());
 
                 for (int i = 0; i < 100000; i++) {
@@ -230,7 +242,7 @@ public class Main {
                 bookSelected.stopToSee(dateI, new Date());
                 System.out.println();
                 System.out.println("Leíste: " + bookSelected);
-                System.out.println("Por: " + bookSelected.getTimeReaded() + " milisegundos");
+                System.out.println("Por: " + bookSelected.getTimeReaded() + " milisegundos");*/
             }
 
         }while(exit !=0);
