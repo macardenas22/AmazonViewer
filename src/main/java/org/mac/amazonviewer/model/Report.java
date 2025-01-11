@@ -7,6 +7,12 @@ public class Report {
     /** <b>Report</b>:
      * es una clase publica que permite la generación de un archivo plano (txt), la cual se puede utilizar
      en cualquier proyecto que requiera por ejemplo, generación de logs o de tramas diversas.
+     *Report *<p> *Esta es la clase genera reportes en la extension deseada,
+     Este tiene como parametros obligotorios los siguientes atributos
+     @param Content {@code String}
+     @param Extension {@code String}
+     @param NameFile {@code String} *@param Title {@code String}
+
      @author Mauricio.Cardenas
      @version 1.0.0.1
      @since 2025

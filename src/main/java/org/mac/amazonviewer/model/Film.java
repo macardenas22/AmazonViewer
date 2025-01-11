@@ -1,5 +1,15 @@
 package org.mac.amazonviewer.model;
 
+/**
+ * <h3>Film</h3>
+ *  Film es una clase padre de tipo abtracta
+ * <p>Esta es la clase base de la familia Film, como es abstracta. NO puede Crear instancias
+ * Contiene el método abstracto {@code view()} que es obligatorio implementar para toda aquel
+ * que pertenezca a la familia </p>
+ * @author IngMaCaL
+ * @Version 1.1
+ * @since 2025
+ * */
 
 public abstract class Film {
 
@@ -65,6 +75,11 @@ public abstract class Film {
     public void setViewed(boolean viewed) {
         this.viewed = viewed;
     }
+
+
+    /**
+     * {@code view()} es un método abstracto obligatorio de implementar
+     * */
 
     //metodo abstracto
     public abstract void view();

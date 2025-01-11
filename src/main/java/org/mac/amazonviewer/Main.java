@@ -8,6 +8,18 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
+/**
+ * <h2>AmazonViewer </h2>
+ * Es un programa que permite visualizar Peliculas, Series con sus respectivos Capítulos
+ * Libros y Magazines. Permite generar reportes generales y con fecha del dia.
+ * <p>Existen algunas reglas como que todos los elementos puede ser visualizados o leídos a
+ * excepción de los magazines, estás solo pueden ser vistas o modo de exposición sin ser leidas.</p>
+ * @IngMaCAl
+ * @Version 1.0
+ * @Since 2024
+ * */
+
+
 
 public class Main {
 
@@ -17,6 +29,8 @@ public class Main {
         //instancia metodo abstracto de movie.
         /*Film film = new Movie("","","",1,(short)1999);
         film.view();*/
+
+
 
         showMenu();
 
