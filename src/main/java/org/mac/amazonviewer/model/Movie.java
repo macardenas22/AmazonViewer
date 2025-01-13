@@ -13,6 +13,8 @@ import java.util.Date;
 
 public class Movie extends Film implements IVisualizable {
 
+
+
     private int id;
     private int timeViewed;
 
@@ -25,6 +27,10 @@ public class Movie extends Film implements IVisualizable {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 
