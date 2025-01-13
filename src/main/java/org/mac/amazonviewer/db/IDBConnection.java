@@ -13,7 +13,7 @@ public interface IDBConnection {
         Connection connection = null;
 
         try {
-            Class.forName("com.mysql.jdbc.Driver");//se llama al driver como un paquete
+            Class.forName("com.mysql.cj.jdbc.Driver");//se llama al driver como un paquete
             //uso mi driver manager para conexion a BBDD + traemos las variables estaticas
             connection = DriverManager.getConnection(URL+DB,USER,PASSWORD);
             //si se logro generar la conexión genere el mensaje que quedo ok

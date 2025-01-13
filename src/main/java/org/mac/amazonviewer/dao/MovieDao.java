@@ -39,6 +39,7 @@ public interface MovieDao extends IDBConnection {
                         Short.valueOf(rs.getString(TMOVIE_YEAR)));
                 //Dado que el constructor movie no posee id se genera por fuera
                 movie.setId(Integer.valueOf(rs.getString(TMOVIE_ID)));
+                movies.add(movie);
             }
 
         } catch (SQLException e) {

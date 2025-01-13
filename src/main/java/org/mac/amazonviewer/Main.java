@@ -3,6 +3,7 @@ package org.mac.amazonviewer;
 import org.mac.amazonviewer.model.*;
 import org.mac.amazonviewer.util.AmazonUtil;
 
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -93,7 +94,16 @@ public class Main {
         }while(exit != 0);
     }
 
-    static ArrayList<Movie> movies = Movie.makeMoviesList();
+    static ArrayList<Movie> movies;
+
+    static {
+        try {
+            movies = Movie.makeMoviesList();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void showMovies() {
         int exit = 1;
 
