@@ -19,15 +19,19 @@ public class DataBase {
     public static final String TMATERIAL_ID         = "id";
     public static final String TMATERIAL_NAME       = "name";
 
+    public static final int[]  ID_TMATERIALS       = {1,2,3,4,5};
+    public static final int TUSER_IDUSUARIO = 1;
+
+
     public static final String TUSER                = "user";
     public static final String TUSER_ID             = "id";
     public static final String TUSER_NAME           = "name";
 
     public static final String TVIEWED              = "viewed";
-    public static final String TID_ID               = "id";
-    public static final String TID_MATERIAL_NAME    = "id_material";
-    public static final String TID_ELEMENT_NAME     = "id_element";
-    public static final String TID_USER_NAME        = "id_user";
+    public static final String TVIEWED_ID           = "id";
+    public static final String TVIEWED_IDMATERIAL   = "id_material";
+    public static final String TVIEWED_IDELEMENT    = "id_element";
+    public static final String TVIEWED_IDUSER       = "id_user";
 
 
 
