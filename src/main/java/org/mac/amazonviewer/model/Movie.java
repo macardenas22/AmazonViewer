@@ -89,7 +89,7 @@ public class Movie extends Film implements IVisualizable, MovieDao {
 
     }
 
-    public static ArrayList<Movie> makeMoviesList() throws SQLException {
+    public static ArrayList<Movie> makeMoviesList()  {
         //generamos un objeto movie vacio
         Movie movie = new Movie();
         return movie.read();
@@ -116,6 +116,8 @@ public class Movie extends Film implements IVisualizable, MovieDao {
     public void view() {
         //movieSelected no se requiere porque hace parte de la misma clase
         setViewed(true);
+        Movie movie = new Movie();
+        movie.setMovieViewed(this);
         Date dateI = startToSee(new Date());
 
         for (int i = 0; i < 100000; i++) {

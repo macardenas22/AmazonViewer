@@ -1,6 +1,7 @@
 package org.mac.amazonviewer.model;
 
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Chapter extends Movie {
@@ -66,7 +67,7 @@ public class Chapter extends Movie {
     //Al heredad de movie tiene el metodo el mismo comportamiento y se le puede añadir más comportamiento
     //se suscribirá para generar tener otra funcionalidad, pero heredando con super lo de movie
     @Override
-    public void view() {
+    public void view()  {
         super.view();
         //obtienes serie y capitulos
         ArrayList<Chapter> chapters = getSerie().getChapters();

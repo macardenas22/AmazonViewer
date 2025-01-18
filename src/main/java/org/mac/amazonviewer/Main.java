@@ -24,7 +24,7 @@ import java.util.Date;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         // TODO Auto-generated method stub
 
         //instancia metodo abstracto de movie.
@@ -37,7 +37,7 @@ public class Main {
 
     }
 
-    public static void showMenu() {
+    public static void showMenu(){
         int exit = 0;
         do {
 
@@ -94,17 +94,10 @@ public class Main {
         }while(exit != 0);
     }
 
-    static ArrayList<Movie> movies;
-
-    static {
-        try {
-            movies = Movie.makeMoviesList();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    static ArrayList<Movie> movies = new ArrayList<>();
 
     public static void showMovies() {
+       movies = Movie.makeMoviesList();
         int exit = 1;
 
         do {
@@ -150,7 +143,7 @@ public class Main {
 
     }
     static ArrayList<Serie> series = Serie.makeSeriesList();
-    public static void showSeries() {
+    public static void showSeries()  {
         int exit = 1;
 
         do {
@@ -227,7 +220,7 @@ public class Main {
     }
 
     static ArrayList<Book> books= Book.makeBookList();
-    public static void showBooks() {
+    public static void showBooks()  {
         int exit = 1;
 
         do {
@@ -272,7 +265,7 @@ public class Main {
         }while(exit !=0);
     }
 
-    public static void showMagazines() {
+    public static void showMagazines()  {
         ArrayList<Magazine> magazines = Magazine.makeMagazineList();
         int exit = 0;
         do {
@@ -343,7 +336,7 @@ public class Main {
         String dateString = df.format(date);
         Report report = new Report();
 
-        report.setNameFile("reporte" + dateString);
+        report.setNameFile("reporte " + dateString);
         report.setExtension("txt");
         report.setTitle(":: VISTOS ::");
 
