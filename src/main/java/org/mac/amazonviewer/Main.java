@@ -24,7 +24,7 @@ import java.util.Date;
 
 public class Main {
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
         // TODO Auto-generated method stub
 
         //instancia metodo abstracto de movie.
@@ -37,7 +37,7 @@ public class Main {
 
     }
 
-    public static void showMenu(){
+    public static void showMenu() {
         int exit = 0;
         do {
 
@@ -96,8 +96,10 @@ public class Main {
 
     static ArrayList<Movie> movies = new ArrayList<>();
 
-    public static void showMovies() {
-       movies = Movie.makeMoviesList();
+
+
+    public static void showMovies()  {
+        movies = Movie.makeMoviesList();
         int exit = 1;
 
         do {
@@ -336,7 +338,7 @@ public class Main {
         String dateString = df.format(date);
         Report report = new Report();
 
-        report.setNameFile("reporte " + dateString);
+        report.setNameFile("reporte" + dateString);
         report.setExtension("txt");
         report.setTitle(":: VISTOS ::");
 

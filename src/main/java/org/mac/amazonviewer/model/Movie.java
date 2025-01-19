@@ -16,11 +16,8 @@ import java.util.Date;
 
 public class Movie extends Film implements IVisualizable, MovieDao {
 
-
-
     private int id;
     private int timeViewed;
-
 
     public Movie() {
 
@@ -118,6 +115,7 @@ public class Movie extends Film implements IVisualizable, MovieDao {
         setViewed(true);
         Movie movie = new Movie();
         movie.setMovieViewed(this);
+
         Date dateI = startToSee(new Date());
 
         for (int i = 0; i < 100000; i++) {

@@ -26,5 +26,6 @@ public class DataBase {
     public static final String TVIEWED_IDMATERIAL 	= "id_material";
     public static final String TVIEWED_IDELEMENT 	= "id_element";
     public static final String TVIEWED_IDUSUARIO 	= "id_user";
+    public static final String TVIEWED_FECHAVIEWED 	= "date_viewed";
 
 }

@@ -61,28 +61,32 @@ public interface MovieDao extends IDBConnection {
         return movies;
     }
 
-    //el metodo tendra un prepared estame y connection y el id de la pelicula
-    private boolean getMovieViewed(PreparedStatement preparedStatement, Connection connection, int id_movie){
-        //para poder generar la actualización de si fue vista o no una serie o pelicula
+    private boolean getMovieViewed(PreparedStatement preparedStatement, Connection connection, int id_movie) {
         boolean viewed = false;
-        String query = "SELECT * FROM " + TVIEWED + " WHERE "+ TVIEWED_IDMATERIAL + " = ?"
-                + " AND " + TVIEWED_IDELEMENT + " = ?" + " AND " + TVIEWED_IDUSUARIO + " = ?";
+        String query = "SELECT * FROM " + TVIEWED +
+                " WHERE " + TVIEWED_IDMATERIAL + "= ?"+
+                " AND " + TVIEWED_IDELEMENT + "= ?" +
+                " AND " + TVIEWED_IDUSUARIO + "= ?";
         ResultSet rs = null;
+
         try {
             preparedStatement = connection.prepareStatement(query);
-            //comohay signos de interrogación utilizamos el set para pasar los paramatros
-            //el set va asociado al tipo de valor del campo
-            preparedStatement.setInt(1,ID_TMATERIALS[0]);
-            preparedStatement.setInt(2,id_movie);
-            preparedStatement.setInt(3,TUSER_IDUSUARIO);
+            preparedStatement.setInt(1, ID_TMATERIALS[0]);
+            preparedStatement.setInt(2, id_movie);
+            preparedStatement.setInt(3, TUSER_IDUSUARIO);
 
             rs = preparedStatement.executeQuery();
-            //genera un valor para el caso qeu no sea falso  el viewed
             viewed = rs.next();
 
-        } catch (SQLException e) {
-            System.out.println(e);
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
         }
+
+
         return viewed;
     }
+
+
+
 }
