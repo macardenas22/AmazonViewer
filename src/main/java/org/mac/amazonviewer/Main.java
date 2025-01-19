@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Consumer;
 
 
 /**
@@ -107,9 +109,17 @@ public class Main {
             System.out.println(":: MOVIES ::");
             System.out.println();
 
+            //dado que es un paradigma funcional no utilizamos incrementado sino AtomicInteger como objeto
+            //lo inicializamos como parametro y al usar el objeto usamos la función getAndIncrement para que adicione 1
+            AtomicInteger aI = new AtomicInteger(1);
+            //for each recorre todos los elementos
+            movies.forEach(m -> System.out.println(aI.getAndIncrement()+". "+m.getTitle()+" visto: "+ m.isViewed()));
+
+
+            /* // Se cambia por lambda
             for (int i = 0; i < movies.size(); i++) { //1. Movie 1
                 System.out.println(i+1 + ". " + movies.get(i).getTitle() + " Visto: " + movies.get(i).isViewed());
-            }
+            }*/
 
             System.out.println("0. Regresar al Menu");
             System.out.println();
@@ -300,15 +310,27 @@ public class Main {
         report.setNameFile("reporte");
         report.setExtension("txt");
         report.setTitle(":: VISTOS ::");
-        String contentReport = "";
+        //se crea esta variable para concatenar información
+        StringBuilder contentReportLambda = new StringBuilder();
+        //String contentReport = "";
 
-        for (Movie movie : movies) {
+        movies.stream().filter(m -> m.getIsViewed())
+                .forEach(m-> contentReportLambda.append(m.toString() + "\n") );
+
+        /*for (Movie movie : movies) {
             if (movie.getIsViewed()) {
                 contentReport += movie.toString() + "\n";
 
             }
-        }
+        }*/
 
+        Consumer<Serie> seriesEach = s ->{
+            ArrayList<Chapter> chapters = s.getChapters();
+            chapters.stream().filter(c-> c.getIsViewed())
+                             .forEach(c->contentReportLambda.append(c.toString()+"\n"));
+        };
+        series.stream().forEach(seriesEach);
+        /*
         for (Serie serie : series) {
             ArrayList<Chapter> chapters = serie.getChapters();
             for (Chapter chapter : chapters) {
@@ -317,17 +339,21 @@ public class Main {
 
                 }
             }
-        }
+        }*/
 
+        books.stream().filter(b -> b.getIsReaded())
+                .forEach(b-> contentReportLambda.append(b.toString() + "\n") );
 
+        /*
         for (Book book : books) {
             if (book.getIsReaded()) {
                 contentReport += book.toString() + "\n";
 
             }
-        }
+        }*/
 
-        report.setContent(contentReport);
+        //se agrega to string para ajustar el proceso
+        report.setContent(contentReportLambda.toString());
         report.makeReport();
         System.out.println("Reporte Generado");
         System.out.println();
@@ -370,6 +396,7 @@ public class Main {
 
             }
         }
+        //agregamos to.string para ajustar la respuetaen los reportes
         report.setContent(contentReport);
         report.makeReport();
 
